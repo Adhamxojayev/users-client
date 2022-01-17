@@ -12,6 +12,13 @@ const server = http.createServer((req,res) => {
         )
         res.end()
     }
+    if(req.url== '/main.js' && req.method == 'GET'){
+        res.writeHead(200, {'Content-Type': 'application/js'})
+        res.write(
+            fs.readFileSync(path.join(__dirname, 'assets', 'main.js'))
+        )
+        res.end()
+    }
 })
 
 
